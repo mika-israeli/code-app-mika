@@ -24,9 +24,8 @@ app.get("/*", (req, res) => {
 const server = http.createServer(app); //http server with express app
 const io = socket(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "http://localhost:8000",
     methods: ["GET", "POST"],
-    allowedHeaders: ["my-custom-header"],
     credentials: true,
   },
 });
