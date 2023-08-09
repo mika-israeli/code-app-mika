@@ -1,7 +1,7 @@
 const express = require("express"); //express server
 const http = require("http");
 const mongoose = require("mongoose");
-const socketIO = require("socket.io");
+const socket = require("socket.io");
 // const { connectToMongo } = require("./db");
 const codeRoutes = require("./routes/codeRouter");
 const cors = require("cors");
@@ -22,9 +22,12 @@ app.get("/*", (req, res) => {
 });
 
 const server = http.createServer(app); //http server with express app
-const io = socketIO(server, {
+const io = socket(server, {
   cors: {
-    origin: "*",
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST"],
+    allowedHeaders: ["my-custom-header"],
+    credentials: true,
   },
 });
 
