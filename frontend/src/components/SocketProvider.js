@@ -7,10 +7,10 @@ const SocketProvider = ({ children }) => {
   const [socket, setSocket] = useState(null);
 
   useEffect(() => {
-    const socketInstance = io("http://localhost:8000");
+    const socketInstance = io("http://localhost:8000", { secure: true });
     setSocket(socketInstance);
 
-    socketInstance.on("connect",()=>console.log("connected"))
+    socketInstance.on("connect", () => console.log("connected"));
     return () => {
       socketInstance.disconnect();
     };

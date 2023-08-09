@@ -6,29 +6,27 @@ const socketIO = require("socket.io");
 const codeRoutes = require("./routes/codeRouter");
 const cors = require("cors");
 const app = express();
-const path = require('path')
-app.use(express.static(path.join(__dirname, 'public')));
+const path = require("path");
+app.use(express.static(path.join(__dirname, "public")));
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/code", codeRoutes);
 
-
-const PORT =  process.env.PORT || 8000;
+const PORT = process.env.PORT || 8000;
 const MAX_STUDENTS_PER_CLASS = 1;
 
-
-app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname+'/public/index.html'));
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/public/index.html"));
 });
+
 const server = http.createServer(app); //http server with express app
 const io = socketIO(server, {
   cors: {
     origin: "*",
   },
 });
-
 
 // Store the socket id of the mentor connected to each code block
 const connectedMentors = {
@@ -85,9 +83,6 @@ const removeClientFromClass = (codeBlockId, socketId) => {
   }
 };
 
-
-
-
 // Socket.io connection event
 io.on("connection", (socket) => {
   console.log("A new user connected");
@@ -139,7 +134,8 @@ io.on("connection", (socket) => {
 
 mongoose
   .connect(
-    process.env.MONGODB_URI || "mongodb+srv://mika80666:iL30iQ2Y2R166ODw@cluster0.6skunbx.mongodb.net/?retryWrites=true&w=majority"
+    process.env.MONGODB_URI ||
+      "mongodb+srv://mika80666:iL30iQ2Y2R166ODw@cluster0.6skunbx.mongodb.net/?retryWrites=true&w=majority"
   )
   .then(() => {
     console.log("Connected to MongoDB successfully");
