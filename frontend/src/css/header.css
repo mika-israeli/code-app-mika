@@ -1,0 +1,17 @@
+.header {
+  background-color: #c9e6f6;
+  padding-top: 10px;
+  text-align: center;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+h1 {
+  font-size: 60px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 30px;
+  font-weight: 500;
+  font-weight: bold;
+}

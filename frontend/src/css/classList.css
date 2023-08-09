@@ -1,0 +1,43 @@
+.classList {
+  background-color: #ffffff;
+  width: 90%;
+  height: 100%;
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.codeList {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 100px 0;
+}
+
+li {
+  margin: 0 70px;
+  /* border: navy 5px solid;
+  border-radius: 5%;
+  width: 280%;
+  height: 100px; */
+}
+
+a {
+  background: linear-gradient(
+    to left,
+    rgb(130, 134, 238),
+    rgb(110, 158, 236),
+    blue,
+    rgb(95, 198, 226),
+    rgb(12, 15, 83),
+    rgb(89, 184, 238),
+    rgb(101, 7, 232)
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 40px;
+  font-weight: bold;
+}
